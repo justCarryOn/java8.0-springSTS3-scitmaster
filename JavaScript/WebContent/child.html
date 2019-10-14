@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자식</title>
+<script>
+	var p = opener;
+
+	function sendText() {
+		var parentText = p.document.getElementById("hereP");
+		var childText = document.getElementById("hereC");
+		parentText.value = childText.value;
+	}
+
+	function receiveText() {
+		var parentText = p.document.getElementById("hereP");
+		var childText = document.getElementById("hereC");
+		childText.value = parentText.value;
+	}
+</script>
+</head>
+<body>
+	<input type="text" id="hereC">
+	<input type="button" value="부모 창에 값 보내기" onclick="sendText()">
+	<input type="button" value="부모 창에서 값 가져오기" onclick="receiveText()">
+</body>
+</html>

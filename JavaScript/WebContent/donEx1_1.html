@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function inputTest() {
+		var temp = document.getElementById("test1");
+		temp.value = "새로 입력한 값";
+//		temp.type = "password"; //
+		temp.setAttribute("disabled", "disabled")
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="inputTest" onclick="inputTest()">
+	<br>
+	<input type="text" id="test1" value="입력하지 않은 값">
+	<br>
+	<input type="text" id="test2" value="입력하지 않은 값">
+	<br>
+	<input type="text" id="test3" value="입력하지 않은 값">
+	<br>
+	<input type="text" id="test4" value="입력하지 않은 값">
+	<br>
+	<a href="#" id="test5">abcd</a>
+	<br>
+	<form action="" id="test6">폼 태그</form>
+	<p id="test7">p태그</p>
+</body>
+</html>

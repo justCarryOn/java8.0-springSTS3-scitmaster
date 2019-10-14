@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+
+div#wrap {
+	width: 100%;
+	margin-top: 10%;
+	margin: auto;
+}
+
+h1.title {
+	text-align: center;
+}
+
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}
+
+.center {
+	text-align: center;
+}
+
+div table {
+	width: 100%;
+	border-style: none;
+	font-size: 1.3em;
+}
+
+input[type="text"] {
+	width: 90%;
+}
+
+ol {
+	list-style-type: decimal;
+}
+
+input[type="button"] {
+	background-color: yellow;
+}

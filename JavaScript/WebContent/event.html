@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>event</title>
+<script>
+	window.onload = function() {
+		document.getElementById("btn1").onclick = function() {
+			alert("버튼 눌림");
+		};
+		document.getElementById("btn2").onclick = btn2Func;
+	}
+	
+	function btn2Func() {
+		alert("버튼 눌림");
+	}
+</script>
+</head>
+<body>
+	<input type="button" id="btn1" value="버튼1">
+	<input type="button" id="btn2" value="버튼2">
+</body>
+</html>

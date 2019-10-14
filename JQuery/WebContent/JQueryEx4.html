@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.high-light-0 {
+	background: yellow;
+}
+
+.high-light-1 {
+	background: orange;
+}
+
+.high-light-2 {
+	background: blue;
+}
+
+.high-light-3 {
+	background: green;
+}
+
+.high-light-4 {
+	background: aqua;
+}
+</style>
+<script src="/JQuery/js/jquery-3.4.1.js"></script>
+<script>
+	$(function() {
+		// $.each()
+		var temp = [ {'key1' : 1,'key2' : 'b', 'key3' : [1,2,3]} ];
+		
+		var arr = [
+			{'name' : 'naver', 'link' : 'https://www.naver.com'},
+			{'name' : 'google', 'link' : 'https://www.google.com'}
+		];
+		
+		$.each(arr, function(index, item) {
+			var output = "";
+			output += "<a href='"+ item.link +"'>";
+			output += "<h1>"+ item.name +"</h1>";
+			output += "</a>";
+			
+			document.body.innerHTML += output;
+		});
+		
+		// $().each();
+		$('h1').each(function(index, item) {
+			// 문서객체 
+			// -> javascript 문서객체 -> 1개
+			// -> JQuery 문서객체 -> 배열 
+			//			-> javascript 문서객체
+			
+			// item 은 javascript 문서객체
+			// item 에서 JQuery 메서드인addClass 메서드 호출 불가
+			// item 을 JQuery 문서객체로 변환
+			$(item).addClass('high-light-' + index);
+		})
+		
+		// $('h1') -> JQuery 문서객체(javascript 문서객체의 배열)
+		// $('h1').each(function(index, item) {~~~})
+		//		-> item 은 javascript 문서객체
+		
+		$('h1').addClass('testcls');
+	});
+	
+</script>
+</head>
+<body>
+	<h1>item-0</h1>
+	<h1>item-1</h1>
+	<h1>item-2</h1>
+</body>
+</html>
+
+
+
+

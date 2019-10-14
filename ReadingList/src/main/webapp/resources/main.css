@@ -1,0 +1,37 @@
+body {
+	font-size : 0.9em;
+}
+#wrapper {
+	width : 1000px;
+	margin: 0 auto;
+}
+#regist {
+	margin :0 auto;
+}
+div.message {
+	color :red;
+}
+form#search {
+	text-align : right;
+}
+#book {
+	width : 995px;
+	margin : 0 auto;
+}
+.review {
+	width : 400px;
+}
+h2 {
+	text-align : center;
+}
+table {
+	border-collapse: collapse;
+}
+tr, td, th {
+	border-top : 1px solid gray;
+	border-bottom: 1px solid gray;
+	padding : 5px 10px 10px 5px;
+}
+hr {
+	border : 1px solid blue;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>부모</title>
+<script>
+	var c; //전역변수 선언
+
+	function openTest1() {
+		window.open("http://www.naver.com", "_blank",
+				"height=100, width=100, top=100, left=100"); // window. 생략 가능
+
+	}
+
+	function openTest2() {
+		c = open("openEx1_2.html", "",
+				"height=100, width=100, top=100, left=100")
+		c.focus();
+	}
+
+	function moveToFunc() {
+		c.moveTo(300, 300);
+		c.focus();
+	}
+
+	function moveByFunc() {
+		c.moveBy(300, 300);
+		c.focus();
+	}
+
+	function resizeToFunc() {
+		c.resizeTo(300, 300);
+		c.focus();
+	}
+
+	function resizeByFunc() {
+		c.resizeBy(300, 300);
+		c.focus();
+	}
+
+	function screenFunc() {
+		open("", "", "width=" + screen.width + ", height=" + screen.height);
+	}
+	
+	function fullScreen() {
+		document.documentElement.requestFullscreen();
+	}
+	
+	function exitFullScreen() {
+		document.exitFullScreen();
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="openTest1" onclick="openTest1()">
+	<br>
+	<input type="button" value="openTest2" onclick="openTest2()">
+	<br>
+	<input type="button" value="moveToFunc" onclick="moveToFunc()">
+	<br>
+	<input type="button" value="moveByFunc" onclick="moveByFunc()">
+	<br>
+	<input type="button" value="resizeToFunc" onclick="resizeToFunc()">
+	<br>
+	<input type="button" value="resizeByFunc" onclick="resizeByFunc()">
+	<br>
+	<input type="button" value="screenFunc" onclick="screenFunc()">
+	<br>
+	<input type="button" value="fullScreen" onclick="fullScreen()">
+	<br>
+	<input type="button" value="exitFullScreen" onclick="exitFullScreen()">
+</body>
+</html>

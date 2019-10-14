@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="global.sesoc.test.dao.BookMapper">
+
+<!-- 모든 도서 정보 조회 / 특정 책장의 도서 정보 조회  -->
+<select id="selectAll" resultType="Book" parameterType="Book">
+SELECT 
+    booknum
+    , shelfname
+    , userid
+    , btitle
+    , writer
+    , publisher
+    , to_char(purchasedate, 'yyyy-mm-dd') purchasedate
+    , price
+    , bookreview 
+FROM 
+    bookinfo
+<if test="shelfname != null">
+WHERE
+	shelfname = #{shelfname}
+</if>
+ORDER BY
+    purchasedate DESC
+</select>
+
+<!--  -->
+<insert id="insertReview" parameterType="Book">
+INSERT INTO bookinfo
+VALUES
+(
+	bookinfo_seq.nextval
+	, #{shelfname} 
+	, #{userid}
+	, #{btitle}
+	, #{writer}
+	, #{publisher}
+	<if test="purchasedate == '' " >
+	, sysdate
+	</if>
+	<if test="purchasedate != '' ">
+	, #{purchasedate}
+	</if>
+	, #{price}
+	, #{bookreview}
+)
+</insert>
+
+<!-- 독서 노트 삭제 -->
+<delete id="deleteReview" parameterType="int">
+DELETE bookinfo
+WHERE
+	booknum = #{booknum}
+</delete>
+
+<!-- 특정 도서에 대한 독서 노트를 검색한다. -->
+<select id="searchBook" parameterType="int" resultType="Book">
+SELECT 
+    booknum
+    , shelfname
+    , userid
+    , btitle
+    , writer
+    , publisher
+    , to_char(purchasedate, 'yyyy-mm-dd') purchasedate
+    , price
+    , bookreview 
+FROM 
+    bookinfo
+WHERE
+	booknum = #{booknum}
+</select>
+
+
+<!-- 독서노트 수정 -->
+<update id="updateBook" parameterType="Book">
+UPDATE bookinfo
+SET
+	shelfname = #{shelfname} 
+	, btitle = #{btitle}
+	, writer = #{writer}
+	, publisher = #{publisher}
+	, purchasedate = to_date(#{purchasedate}, 'yy/mm/dd')
+	, price = #{price}
+	, bookreview = #{bookreview}
+WHERE
+	booknum = #{booknum}
+</update>
+</mapper>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/JQuery/js/jquery-3.4.1.js"></script>
+<script>
+	function selectFunc1() {
+		var temp = $("input#test[type='text']");
+		var text = temp.val();
+		alert(text);
+	}
+	
+	function selectFunc2() {
+		var text = $("input:checked").val();
+		alert(text);
+	}
+	
+	function selectFunc3() {
+		var text = $("option:selected").val();
+		alert(text);
+	}
+</script>
+</head>
+<body>
+
+	<input type="text" id="test">
+	<br>
+	<input type="radio" name="test" value="1">1
+	<input type="radio" name="test" value="2" checked="checked">2
+	<input type="radio" name="test" value="3">3
+	<br>
+
+	<select>
+		<option value="a">a</option>
+		<option value="b" selected="selected">b</option>
+		<option value="c">c</option>
+	</select>
+
+	<br>
+	<br>
+	<input type="button" value="text값 확인" onclick="selectFunc1()">
+	<br>
+	<input type="button" value="radio값 확인" onclick="selectFunc2()">
+	<br>
+	<input type="button" value="select값 확인" onclick="selectFunc3()">
+	<br>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

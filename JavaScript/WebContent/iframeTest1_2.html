@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function test1() {
+		open("openEx1_1.html", "_self");
+	}
+	
+	function test2() {
+		open("openEx1_1.html", "_parent")
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="화면전환 self" onclick="test1()">
+	<br>
+	<input type="button" value="화면전환 parent" onclick="test2()">
+</body>
+</html>

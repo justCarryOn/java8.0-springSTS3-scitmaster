@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/JQuery/js/jquery-3.4.1.js"></script>
+<script>
+	var cnt = 0;
+	function changeImg(item) {
+		var link = [
+			'http://bit.ly/goback11',
+			'http://bit.ly/goback22',
+			'http://bit.ly/goback33'
+		];
+		
+		if(item.value === ">") cnt++;
+		else cnt<=0 ? cnt=link.length-1 : cnt--;
+		
+		$('img').attr('src', link[cnt % link.length]);
+	}
+	
+	function changeSize(item) {
+		var width = $('img').attr('width');
+		var height = $('img').attr('height');
+		if(item.value === "+") {
+			$('img').attr(
+				{'width': Number(width) + 30,
+				'height': Number(height) + 30});
+			}else {
+				$('img').attr({'width': Number(width) - 30, 'height': Number(height) - 30});
+					}
+			}
+</script>
+</head>
+<body>
+
+	<img src="http://bit.ly/goback11" width="250" height="250" />
+	<br>
+	<input type="button" value="<" onclick="changeImg(this)">
+	<input type="button" value=">" onclick="changeImg(this)">
+	<br>
+
+	<input type="button" value="+" onclick="changeSize(this)">
+	<input type="button" value="-" onclick="changeSize(this)">
+	<br>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>부모</title>
+<script>
+	var c;
+
+	function openChild() {
+		c = open("child.html");
+	}
+
+	function sendText() {
+		var childText = c.document.getElementById("hereC");
+		var parentText = document.getElementById("hereP");
+		childText.value = parentText.value;
+	}
+
+	function receiveText() {
+		var childText = c.document.getElementById("hereC");
+		var parentText = document.getElementById("hereP");
+		parentText.value = childText.value;
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="자식 창 열기" onclick="openChild()">
+	<br>
+	<input type="text" id="hereP">
+	<input type="button" value="자식 창에 값 보내기" onclick="sendText()">
+	<input type="button" value="자식 창에서 값 가져오기" onclick="receiveText()">
+</body>
+</html>

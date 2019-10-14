@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script src="/JQuery/js/jquery-3.4.1.js"></script>
+<script>
+	$(function() {
+		$('img.change').on('click', function() {
+			$(this).attr('src', 'http://bit.ly/goback22');
+		});
+		
+		$('img.remove').click(function() {
+			$(this).remove();
+		});
+	})
+</script>
+<body>
+	<img class="change" src="http://bit.ly/goback11" />
+	<img class="change" src="http://bit.ly/goback11" />
+	<img class="change" src="http://bit.ly/goback11" />
+	<br>
+	<img class="remove" src="http://bit.ly/goback22" />
+	<img class="remove" src="http://bit.ly/goback33" />
+</body>
+</html>

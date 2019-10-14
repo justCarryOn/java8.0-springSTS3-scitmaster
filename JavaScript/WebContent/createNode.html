@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>createNode</title>
+<script>
+	function createNode1() {
+		var elementNode = document.createElement("h1");
+		var textNode = document.createTextNode("새롭게 추가한 텍스트");
+		elementNode.appendChild(textNode);
+		document.body.appendChild(elementNode);
+	}
+
+	function createNode2() {
+		var elementNode = document.createElement("input");
+		elementNode.type = "text";
+		elementNode.id = "test2";
+		elementNode.value = "텍스트";
+		elementNode.disabled = "disabled";
+		document.body.appendChild(elementNode);
+	}
+
+	function createNode3() {
+		var output = "<br>";
+		output += "<ul>";
+		output += "<li>추가1</li>";
+		output += "<li id='here'>추가2</li>";
+		output += "<li>추가3</li>";
+		output += "</ul>";
+		document.body.innerHTML += output;
+	}
+
+	function deleteNode() {
+		var temp = document.getElementById("here");
+		temp.parentNode.removeChild(temp);
+	}
+	function deleteNode2() {
+		var temp = document.getElementById("here");
+		var temp2 = temp.parentNode;
+		temp2.parentNode.removeChild(temp2);
+	}
+</script>
+</head>
+<body>
+	<p id="test1"></p>
+	<input type="button" value="createNode1" onclick="createNode1()">
+	<br>
+	<input type="button" value="createNode2" onclick="createNode2()">
+	<br>
+	<input type="button" value="createNode3" onclick="createNode3()">
+	<br>
+	<input type="button" value="deleteNode" onclick="deleteNode()">
+	<br>
+	<input type="button" value="deleteNode2" onclick="deleteNode2()">
+</body>
+</html>

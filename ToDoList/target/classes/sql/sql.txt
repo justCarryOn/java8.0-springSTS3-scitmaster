@@ -1,0 +1,18 @@
+CREATE TABLE todouser (
+    userid varchar2(20) primary key
+    ,userpwd varchar2(20) not null
+    ,username varchar2(30) not null
+);
+
+CREATE TABLE todo (
+    todoseq number primary key
+    ,userid varchar2(20) not null CONSTRAINT TODO_USERID_FK REFERENCES todouser(userid) ON DELETE CASCADE
+    ,tododata varchar2(30) not null
+    ,regdate date default TO_CHAR(sysdate, 'yyyy-mm-dd') not null
+    ,importance varchar2(10) CONSTRAINT TODO_IMPORTANCE_CHECK check (importance in ('good', 'average', 'poor'))
+    ,deadline date
+    ,result varchar2(10) CONSTRAINT TODO_RESULT_CHECK check(result in ('complete', 'failure', 'pend'))
+    ,comments varchar2(2000)
+);
+
+CREATE SEQUENCE todo_seq;

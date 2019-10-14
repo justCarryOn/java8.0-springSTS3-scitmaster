@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script src="/JQuery/js/jquery-3.4.1.js"></script>
+<script>
+	function textCopy(item) {
+		var text = $(item).val();
+		$('.copied').val(text);
+	}
+</script>
+</head>
+<body>
+	<input type="text" onkeyup="textCopy(this)">
+	<br>
+
+	<input type="text" class="copied" readonly="readonly">
+	<br>
+	<input type="text" class="copied" readonly="readonly">
+	<br>
+	<input type="text" class="copied" readonly="readonly">
+	<br>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>JQueryEx1</title>
+<script src="/JQuery/js/jquery-3.4.1.js"></script>
+<script>
+	var temp1;
+	var temp2;
+
+	$(function() {
+		temp1 = document.getElementById("temp");
+		temp2 = $("#temp");
+		
+		temp2.css("background-color", "orange");
+		
+		var temp3 = $("div > ul > li");
+		temp3.addClass("test");
+	})
+</script>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+	</div>
+
+	<h1 id="temp">테스트</h1>
+
+</body>
+</html>
+
+
+
+
+
+
+

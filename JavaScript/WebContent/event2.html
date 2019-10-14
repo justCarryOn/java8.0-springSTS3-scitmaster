@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>event</title>
+<script>
+	function mOver() {
+		var box = document.getElementById("box");
+		box.checked = "checked";
+	}
+
+	function keyUpFunc() {
+		var text = document.getElementById("Text");
+		text.value = text.value.toUpperCase();
+	}
+
+	function changeFunc() {
+		var x = document.getElementById("mySelect").value;
+		document.getElementById("here").style.backgroundColor = x;
+	}
+
+	function myFunction() {
+		var x = document.getElementById("myInput").value;
+		var r = parseInt(Math.random() * 255);
+		var g = parseInt(Math.random() * 255);
+		var b = parseInt(Math.random() * 255);
+
+		document.getElementById("demo").innerHTML = x;
+		document.body.style.backgroundColor = "rgb(" + r + ", " + g + ", " + b
+				+ ")";
+	}
+</script>
+</head>
+<body>
+	<input type="checkbox" id="box" onmouseover="mOver()">여기여기
+	<br>
+	<input type="text" id="text" onkeyup="keyUpFunc()">
+	<select id="mySelect" onchange="changeFunc()">
+		<option value="red">red</option>
+		<option value="blue">blue</option>
+		<option value="green">green</option>
+	</select>
+	<h1 id="here">여기여기</h1>
+	<br>
+	<input type="text" id="myInput" oninput="myFunction()">
+	<br>
+	<p id="demo"></p>
+</body>
+</html>

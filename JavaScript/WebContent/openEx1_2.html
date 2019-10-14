@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자식</title>
+<script>
+	function closeFunc() {
+		if (confirm("창을 닫으시겠습니까?")) {
+			close();
+		}
+	}
+
+	function parentCloseFunc() {
+		if (confirm("부모창을 닫으시겠습니까?")) {
+			opener.close();
+		}
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="closeFunc" onclick="closeFunc()">
+	<br>
+	<input type="button" value="parentCloseFunc"
+		onclick="parentCloseFunc()">
+</body>
+</html>

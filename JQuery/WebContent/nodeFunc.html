@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/JQuery/js/jquery-3.4.1.js"></script>
+<script>
+	$(function() {
+		printHtml();
+	})
+	
+	function printHtml() {
+		var ElementNode = $('div#desc').html();
+		$('pre').text(ElementNode);	
+	}
+	
+	function appendFunc() {
+		$('div#here').append('<h1>append추가</h1>');
+		printHtml();
+	}
+	
+	function prependFunc() {
+		$('div#here').prepend('<h1>prepend추가</h1>');
+		printHtml();
+	}
+	
+	function afterFunc() {
+		$('div#here').after('<h1>after추가</h1>');
+		printHtml();
+	}
+	
+	function beforeFunc() {
+		$('div#here').before('<h1>before추가</h1>');
+		printHtml();
+	}
+		
+	function emptyFunc() {
+		$('div#here').empty();
+		printHtml();
+	}
+	
+	function removeFunc() {
+		$('div#here').remove();
+		printHtml();	
+	}
+</script>
+</head>
+<body>
+	<div id="desc">
+		<div id="here">
+			<input type="text" value="test1"><br>
+			<input type="text" value="test2"><br>
+			<input type="text" value="test3"><br>
+			<h1>가</h1>
+			<h2>나</h2>
+			<h3>다</h3>
+		</div>
+	</div>
+	<input type="button" value="$('div#here').append('<h1>append추가</h1>')" 
+		onclick="appendFunc()">
+	<br>
+	<input type="button" value="$('div#here').prepend('<h1>prepend추가</h1>')"
+		onclick="prependFunc()">
+	<br>
+	<input type="button" value="$('div#here').after('<h1>after추가</h1>')"
+		onclick="afterFunc()">
+	<br>
+	<input type="button" value="$('div#here').before('<h1>before추가</h1>')"
+		onclick="beforeFunc()">
+	<br>
+	<input type="button" value="$('div#here').empty()" onclick="emptyFunc()">
+	<br>
+	<input type="button" value="$('div#here').remove()"	onclick="removeFunc()">
+	<br>
+	<hr>
+	<pre></pre>
+</body>
+</html>

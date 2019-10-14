@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.test.web.dao.BoardMapper">
+
+	<select id="getTotal" parameterType="map" resultType="int">
+		SELECT
+			COUNT(*)
+		FROM
+			board
+		WHERE
+			${searchItem} LIKE '%'||#{searchKeyword}||'%'
+	</select>
+	
+	<update id="boardUpdate" parameterType="BoardVO">
+		UPDATE
+			board
+		SET
+			title = #{title}
+			,content = #{content}
+			<if test="originalFileName != null and savedFileName != null">
+				,originalfilename = #{originalFileName}
+				,savedfilename = #{savedFileName}
+			</if>
+		WHERE
+			boardnum = #{boardNum}
+			AND userid = #{userid}
+	</update>
+	
+	
+	<!-- <select id="boardList" parameterType="map" resultType="BoardVO">
+		SELECT *
+		FROM
+			board
+		WHERE
+			${searchItem} LIKE '%'||#{searchKeyword}||'%'
+		ORDER BY
+			boardnum DESC
+	</select> -->
+	
+	<select id="boardList" parameterType="map" resultType="BoardVO">
+		SELECT *
+		FROM
+			board
+		WHERE
+			<choose>
+				<when test="searchItem == 'title'">title</when>
+				<when test="searchItem == 'content'">content</when>
+				<when test="searchItem == 'userid'">userid</when>
+			</choose>
+			LIKE '%'||#{searchKeyword}||'%'
+		ORDER BY
+			boardnum DESC
+	</select>
+	
+	<update id="countHit" parameterType="int">
+		UPDATE
+			board
+		SET
+			hit = hit + 1
+		WHERE
+			boardnum = #{boardNum}
+	</update>
+	
+	<select id="boardRead" parameterType="int" resultType="BoardVO">
+		SELECT *
+		FROM
+			board
+		WHERE
+			boardnum = #{boardNum}
+	</select>
+	
+	<delete id="boardDelete" parameterType="BoardVO">
+		DELETE
+			board
+		WHERE
+			boardnum = #{boardNum}
+			AND userid = #{userid}
+	</delete>
+	
+	<insert id="boardWrite" parameterType="BoardVO">
+		INSERT INTO
+			board
+		(boardnum, userid, title, content, originalfilename, savedfilename)
+		VALUES (
+			board_seq.nextval
+			,#{userid}
+			,#{title}
+			,#{content}
+			<choose>
+				<when test="originalFileName != null and savedFileName != null">
+					,#{originalFileName}, #{savedFileName}
+				</when>
+				<otherwise>
+					,null ,null
+				</otherwise>
+			</choose>
+		)
+	</insert>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
